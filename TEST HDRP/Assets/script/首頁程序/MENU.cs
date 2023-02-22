@@ -19,8 +19,4 @@ public class MENU : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(1);
     }
-
-    public void setvolume(float volum) {
-        Debug.Log(volum);
-    }
 }

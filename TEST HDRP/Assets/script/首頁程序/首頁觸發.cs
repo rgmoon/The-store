@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class 首頁觸發 : MonoBehaviour
 {
-    public GameObject inanim,texts,startbtn,settingbtn,settingmenu;
+    public GameObject inanim,texts,startbtn;
     public Material[] materials;
     public Renderer rend;
     bool isClick=false;
@@ -16,8 +16,6 @@ public class 首頁觸發 : MonoBehaviour
         inanim.SetActive(false);
         texts.SetActive(true);
         startbtn.SetActive(false);
-        settingbtn.SetActive(false);
-        settingmenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,13 +33,11 @@ public class 首頁觸發 : MonoBehaviour
     }
     IEnumerator DDD()
     {
-        settingmenu.SetActive(true);
         yield return new WaitForSeconds(2.7f);
         rend.sharedMaterial=materials[1];
         yield return new WaitForSeconds(0.5f);
         rend.sharedMaterial=materials[2];
         startbtn.SetActive(true);
-        settingbtn.SetActive(true);
 
     }
 }
