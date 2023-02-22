@@ -8,6 +8,7 @@ public class 首頁觸發 : MonoBehaviour
     public Material[] materials;
     public Renderer rend;
     bool isClick=false;
+    bool test;
     // Start is called before the first frame update
     void Start()
     {
