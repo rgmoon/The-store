@@ -2374,7 +2374,11 @@ Transform:
   - {fileID: 1291483617}
   m_Father: {fileID: 0}
   m_RootOrder: 14
+<<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 28.131, y: -180, z: 0}
+=======
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+>>>>>>> parent of f6d169f (2023/03/02工作進度)
 --- !u!1 &1918489024
 GameObject:
   m_ObjectHideFlags: 0

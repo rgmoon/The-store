@@ -14,9 +14,9 @@ public class setting : MonoBehaviour
     IEnumerator animate() {
      yield return new WaitForSeconds(0.001f);
      setmenu.Play("setting");
-     setmenu2.Play("setting");
+        setmenu2.Play("setting");
     }
     public void Setvolume(float volume) {
-        mainaudio.SetFloat("Volume", volume);
+        mainaudio.SetFloat("Volume",Mathf.Log10(volume) *20);
     }
 }
