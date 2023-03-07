@@ -737,7 +737,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -834,8 +834,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -1170,7 +1170,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &170584346
 PrefabInstance:
@@ -2211,7 +2211,7 @@ Transform:
   m_LocalScale: {x: 0.03041, y: 0.02729, z: 0.02946}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1001 &333379179
 PrefabInstance:
@@ -2526,7 +2526,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -2623,8 +2623,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -2890,7 +2890,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -2987,8 +2987,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -3249,7 +3249,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -3346,8 +3346,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -3753,7 +3753,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &507350282
 PrefabInstance:
@@ -4048,7 +4048,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -4145,8 +4145,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -4424,7 +4424,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 11.22, y: 179.25, z: 0.011}
 --- !u!1 &576864035
 GameObject:
@@ -4497,7 +4497,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -4594,8 +4594,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -4861,7 +4861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 74.626, y: 199.055, z: 16.423}
 --- !u!1001 &610432858
 PrefabInstance:
@@ -5523,7 +5523,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -5620,8 +5620,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -5781,13 +5781,82 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &830794356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ed3813ec59fddc047b4bce2f64e63c11, type: 3}
   m_PrefabInstance: {fileID: 235589877}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &842097221
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 21.759233
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 21.759233
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 21.759233
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.6289
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.142
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eaf169320fa8ebb468718672533495ad, type: 3}
+      propertyPath: m_Name
+      value: p2 final
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eaf169320fa8ebb468718672533495ad, type: 3}
 --- !u!1 &843205051
 GameObject:
   m_ObjectHideFlags: 0
@@ -6002,7 +6071,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 346.51, y: -30, z: 0}
 --- !u!1001 &858552437
 PrefabInstance:
@@ -6193,7 +6262,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &916859114 stripped
 Transform:
@@ -7779,7 +7848,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -7876,8 +7945,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -7995,7 +8064,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -8092,8 +8161,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -8625,7 +8694,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -8722,8 +8791,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -8857,27 +8926,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7d37ac7acebe604e8aabf9e3c023ec2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.052151542
+      value: 0.07156235
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7d37ac7acebe604e8aabf9e3c023ec2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.052151535
+      value: 0.071562335
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7d37ac7acebe604e8aabf9e3c023ec2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.052151542
+      value: 0.07156235
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7d37ac7acebe604e8aabf9e3c023ec2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.809925
+      value: -18.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7d37ac7acebe604e8aabf9e3c023ec2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.093358
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7d37ac7acebe604e8aabf9e3c023ec2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.469727
+      value: 24.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7d37ac7acebe604e8aabf9e3c023ec2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9300,7 +9369,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -9397,8 +9466,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -9811,7 +9880,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -9908,8 +9977,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -10210,7 +10279,7 @@ RectTransform:
   m_Children:
   - {fileID: 28804959}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10362,7 +10431,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -10459,8 +10528,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -10825,7 +10894,7 @@ MonoBehaviour:
   m_ShapeRadius: 0
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.8
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -10922,8 +10991,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 35.005817
   m_Range: 15.92
-  m_SpotAngle: 179
-  m_InnerSpotAngle: 19.8
+  m_SpotAngle: 170
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -11352,7 +11421,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1460201216 stripped
 Transform:
@@ -12457,7 +12526,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1583013954
 PrefabInstance:
@@ -13179,7 +13248,7 @@ Transform:
   m_Children:
   - {fileID: 241907800}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 16.977, y: 179.251, z: 0.011}
 --- !u!1001 &1711702465
 PrefabInstance:
@@ -13501,7 +13570,7 @@ Transform:
   m_LocalScale: {x: 8.925956, y: 1.6282, z: 13.095938}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1762503328
 BoxCollider:
@@ -13731,7 +13800,7 @@ Transform:
   m_Children:
   - {fileID: 1291483617}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &1790968547
 GameObject:
@@ -14604,7 +14673,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 74.626, y: 190.877, z: 16.423}
 --- !u!1001 &1920002600
 PrefabInstance:
@@ -15066,7 +15135,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2000340986
 GameObject:
@@ -15385,7 +15454,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2028047328 stripped
 Transform:
