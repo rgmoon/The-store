@@ -21,7 +21,7 @@ public class 追擊 : MonoBehaviour
     public bool s =false;
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange,playerInDark,InLight;
+    public bool playerInSightRange, playerInAttackRange,InDark,InLight;
 
     // Start is called before the first frame update
     NavMeshAgent nav;
@@ -35,7 +35,7 @@ public class 追擊 : MonoBehaviour
    void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
+        InDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
         InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
         if(!playerInSightRange&&s==false)
         {
@@ -46,7 +46,7 @@ public class 追擊 : MonoBehaviour
         }
         if (playerInSightRange||s==true)
         {
-            if(playerInDark)
+            if(InDark)
             Chess();
         }
        
@@ -73,9 +73,10 @@ public class 追擊 : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
         
-        if (Physics.Raycast(walkPoint, -transform.up, 10f, whatisDark))
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatisDark))
         {
             walkPointSet = true;
+            Debug.Log("suc");
         }
         transform.LookAt(walkPoint);
         StartCoroutine("ddd");
