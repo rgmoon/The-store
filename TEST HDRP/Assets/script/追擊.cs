@@ -8,28 +8,27 @@ public class 追擊 : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer,whatisLight,whatisDark;
     public float 巡邏間隔;
     public bool 正在巡邏=false;
-    public float health;
+   
 
     //Patroling
-    public Vector3 walkPoint,chesspoint,getDarkpoint;
-    bool walkPointSet,toDarkset;
+     [SerializeField]Vector3 walkPoint,chesspoint,getDarkpoint;
+    public bool walkPointSet,toDarkset;
     public float walkPointRange,walkDarkRange;
 
-    //Attacking
-    public float timeBetweenAttacks;
+
+   
     bool alreadyAttacked;
-    public GameObject projectile;
     public bool s =false;
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange,playerInDark,playerInLight;
+    public bool playerInSightRange, playerInAttackRange,playerInDark,InLight;
 
     // Start is called before the first frame update
     NavMeshAgent nav;
     public GameObject palyer;
     void Start()
     {
-        nav=GetComponent<NavMeshAgent>();
+        nav=this.gameObject.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -37,11 +36,11 @@ public class 追擊 : MonoBehaviour
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
-        playerInLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
-        if(!playerInSightRange&&playerInDark&&!playerInLight)
+        InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
+        if(!playerInSightRange&&s==false)
         {
             Patroling();
-        } else if(playerInLight)
+        } else if(InLight)
         {
             gotodark();
         }
@@ -51,7 +50,7 @@ public class 追擊 : MonoBehaviour
             Chess();
         }
        
-        Debug.Log(s);
+       // Debug.Log(s);
     }
     private void Patroling()
     {
@@ -74,7 +73,7 @@ public class 追擊 : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
         
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)&&Physics.Raycast(walkPoint, -transform.up, 2f, whatisDark))
+        if (Physics.Raycast(walkPoint, -transform.up, 10f, whatisDark))
         {
             walkPointSet = true;
         }
@@ -101,7 +100,7 @@ public class 追擊 : MonoBehaviour
      IEnumerator ddd()
     {   
         正在巡邏=true;
-        yield return new WaitForSeconds(2); 
+        yield return new WaitForSeconds(巡邏間隔); 
         正在巡邏=false;
     } 
     public void Chess()
