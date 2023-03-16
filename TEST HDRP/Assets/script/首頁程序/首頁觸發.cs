@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class 首頁觸發 : MonoBehaviour
 {
-    public GameObject inanim,texts,startbtn,settingbtn,settingmenu;
+    public GameObject inanim,texts,startbtn,settingbtn,settingmenu,desktop;
     public Material[] materials;
     public Renderer rend;
     bool isClick=false;
@@ -19,6 +19,7 @@ public class 首頁觸發 : MonoBehaviour
         startbtn.SetActive(false);
         settingbtn.SetActive(false);
         settingmenu.SetActive(false);
+        desktop.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class 首頁觸發 : MonoBehaviour
         rend.sharedMaterial=materials[1];
         yield return new WaitForSeconds(0.5f);
         rend.sharedMaterial=materials[2];
+        desktop.SetActive(true);
         startbtn.SetActive(true);
         settingbtn.SetActive(true);
 

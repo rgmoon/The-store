@@ -76,7 +76,7 @@ public class 追擊 : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatisDark))
         {
             walkPointSet = true;
-            Debug.Log("suc");
+            //Debug.Log("suc");
         }
         transform.LookAt(walkPoint);
         StartCoroutine("ddd");
