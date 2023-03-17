@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class 追擊 : MonoBehaviour
 {
-
+    public Animator ani;
     public LayerMask whatIsGround, whatIsPlayer,whatisLight,whatisDark;
     public float 巡邏間隔;
     public bool 正在巡邏=false;
@@ -28,7 +28,7 @@ public class 追擊 : MonoBehaviour
     public GameObject palyer;
     void Start()
     {
-        nav=this.gameObject.GetComponent<NavMeshAgent>();
+       nav=this.gameObject.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -47,8 +47,14 @@ public class 追擊 : MonoBehaviour
         if (playerInSightRange||s==true)
         {
             if(InDark)
-            Chess();
+            {
+                StartCoroutine("chessanicount");
+                Chess();
+            }
         }
+        
+             
+        
        
        // Debug.Log(s);
     }
@@ -106,9 +112,19 @@ public class 追擊 : MonoBehaviour
     } 
     public void Chess()
     {   
-        nav.SetDestination(palyer.transform.position);
-        chesspoint=new Vector3(palyer.transform.position.x, transform.position.y, palyer.transform.position.z );
-        if(Physics.Raycast(chesspoint, -transform.up, 2f, whatisDark))
+        StartCoroutine("chessanicount");
+        
+       
         transform.LookAt(chesspoint);
+    }
+    IEnumerator chessanicount()
+    {
+        ani.SetBool("ISDECTED",true);
+        yield return new WaitForSeconds(5);
+        
+       ani.SetBool("ISDECTED",false);
+        chesspoint=new Vector3(palyer.transform.position.x, transform.position.y, palyer.transform.position.z );
+    if(Physics.Raycast(chesspoint, -transform.up, 2f, whatisDark))
+       nav.SetDestination(palyer.transform.position);
     }
 }
