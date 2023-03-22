@@ -8,7 +8,7 @@ public class 追擊 : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer,whatisLight,whatisDark;
     public float 巡邏間隔;
     public bool 正在巡邏=false;
-   
+    
 
     //Patroling
      [SerializeField]Vector3 walkPoint,chesspoint,getDarkpoint;
@@ -34,6 +34,8 @@ public class 追擊 : MonoBehaviour
     // Update is called once per frame
    void Update()
     {
+        float anispeed=nav.velocity.magnitude;
+        ani.SetFloat("Speed",anispeed);
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         InDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
         InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
@@ -122,7 +124,7 @@ public class 追擊 : MonoBehaviour
         ani.SetBool("ISDECTED",true);
         yield return new WaitForSeconds(5);
         
-       ani.SetBool("ISDECTED",false);
+      
         chesspoint=new Vector3(palyer.transform.position.x, transform.position.y, palyer.transform.position.z );
     if(Physics.Raycast(chesspoint, -transform.up, 2f, whatisDark))
        nav.SetDestination(palyer.transform.position);
