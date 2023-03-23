@@ -17,6 +17,6 @@ public class setting : MonoBehaviour
      setmenu2.Play("setting");
     }
     public void Setvolume(float volume) {
-        mainaudio.SetFloat("Volume", volume);
+        mainaudio.SetFloat("Volume", Mathf.Log10(volume) * 20);
     }
 }

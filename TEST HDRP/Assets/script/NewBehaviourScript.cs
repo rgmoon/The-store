@@ -41,6 +41,7 @@ public class NewBehaviourScript : MonoBehaviour
                 timer.min = timer.orgmin;
                 timer.hour = timer.orghour;
                 STDtime.updatestdtime();
+                Debug.Log("tru");
             }
             if (Input.GetKeyDown(KeyCode.E) && hit.transform.tag == "Test2")
             {

@@ -9,7 +9,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 	[RequireComponent(typeof(PlayerInput))]
 #endif
-	public class FirstPersonController : MonoBehaviour
+	public class FirstPersonController : MonoBehaviour, IDatapersistence
 	{
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
@@ -264,5 +264,16 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
-	}
+
+       public void loaddata(Gamedata data)
+        {
+			this.transform.position = data.playerposition;
+		}
+
+        public void savedata(ref Gamedata data)
+        {
+			data.playerposition = this.transform.position;
+		}
+    }
+
 }

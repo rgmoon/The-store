@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - player timer
+  - timer1
+  - Test
   layers:
   - Default
   - TransparentFX
