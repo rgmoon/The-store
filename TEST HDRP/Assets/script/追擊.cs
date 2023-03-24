@@ -15,13 +15,13 @@ public class 追擊 : MonoBehaviour
     public bool walkPointSet,toDarkset;
     public float walkPointRange,walkDarkRange;
 
-
+    
    
-    bool alreadyAttacked;
-    public bool s =false;
+    //bool alreadyAttacked;
+    public bool s=false,chaseison=false;
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange,InDark,InLight;
+    public bool playerInSightRange, playerInAttackRange,InDark,InLight,isecu;
 
     // Start is called before the first frame update
     NavMeshAgent nav;
@@ -34,6 +34,15 @@ public class 追擊 : MonoBehaviour
     // Update is called once per frame
    void Update()
     {
+        
+        
+        if(Vector3.Distance(transform.position,palyer.transform.position)>=20)
+         {
+            isecu=false;
+            chaseison=false;
+            ani.SetBool("Lost",true);
+            nav.speed=(1f);
+         }
         float anispeed=nav.velocity.magnitude;
         ani.SetFloat("Speed",anispeed);
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
@@ -46,14 +55,15 @@ public class 追擊 : MonoBehaviour
         {
             gotodark();
         }
-        if (playerInSightRange||s==true)
+        if (playerInSightRange||s==true||chaseison==true)
         {
             if(InDark)
             {
                 StartCoroutine("chessanicount");
                 Chess();
             }
-        }
+        }else
+        {ani.SetBool("dected",false);}
         
              
         
@@ -121,10 +131,19 @@ public class 追擊 : MonoBehaviour
     }
     IEnumerator chessanicount()
     {
-        ani.SetBool("ISDECTED",true);
-        yield return new WaitForSeconds(5);
-        
-      
+        chaseison=true;
+        if(isecu==false)
+        {   
+            isecu=true;
+            ani.SetBool("Lost",false);
+            ani.SetBool("dected",true);
+            nav.isStopped = true;
+            yield return new WaitForSeconds(5);
+            nav.isStopped = false;
+            ani.SetBool("dected",false);
+        }
+
+      nav.speed=(3.5f);
         chesspoint=new Vector3(palyer.transform.position.x, transform.position.y, palyer.transform.position.z );
     if(Physics.Raycast(chesspoint, -transform.up, 2f, whatisDark))
        nav.SetDestination(palyer.transform.position);
