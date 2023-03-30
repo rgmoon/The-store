@@ -55,7 +55,7 @@ public class DataPersistence : MonoBehaviour
     }
 
     //just for test
-    private void OnApplicationQuit()
+    private void clicksave()
     {
         save();
     }
