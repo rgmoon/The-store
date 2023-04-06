@@ -11,6 +11,7 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour, IDatapersistence
 	{
+		public c cam;
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -191,6 +192,7 @@ namespace StarterAssets
 			if (_input.move != Vector2.zero)
 			{
 				// move
+				
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
 			}
 
