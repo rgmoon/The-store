@@ -8,6 +8,9 @@ TagManager:
   - player timer
   - timer1
   - Test
+  - cl
+  - dl
+  - ml
   layers:
   - Default
   - TransparentFX

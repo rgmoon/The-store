@@ -8,10 +8,11 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public STDtimer STDtime;
     public FirstPersonController playerController;
-    public GameObject player, dpob,dptime;
+    public GameObject player, dpob,dptime,canlight,moneylight,maindoorlight;
     public float dis;
     public Timer1 timer;
     public bool cardtick = false;
+    public bool clbl,mlbl,dlbl;
     bool proceed = false;
     void Start()
     {
@@ -54,6 +55,39 @@ public class NewBehaviourScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && hit.transform.tag == "com")
             {
                 SceneManager.LoadScene("computer");
+            }
+            if (Input.GetKeyDown(KeyCode.E) && hit.transform.tag == "ml")
+            {
+                mlbl=!mlbl;
+                if(mlbl==true)
+                {
+                    moneylight.SetActive(true);
+                }else if(mlbl==false)
+                {
+                   moneylight.SetActive(false); 
+                }
+            }
+             if (Input.GetKeyDown(KeyCode.E) && hit.transform.tag == "dl")
+            {
+                dlbl=!dlbl;
+                if(dlbl==true)
+                {
+                    maindoorlight.SetActive(true);
+                }else if(dlbl==false)
+                {
+                   maindoorlight.SetActive(false); 
+                }
+            }
+             if (Input.GetKeyDown(KeyCode.E) && hit.transform.tag == "cl")
+            {
+                clbl=!clbl;
+                if(clbl==true)
+                {
+                    canlight.SetActive(true);
+                }else if(clbl==false)
+                {
+                   canlight.SetActive(false); 
+                }
             }
         }
     }

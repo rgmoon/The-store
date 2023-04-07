@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:TEST HDRP/Assets/P2 executon.meta
 guid: 7c65dbbdbc89c014a915f3cc4dd0c437
 folderAsset: yes
 DefaultImporter:
+========
+guid: d3991c75939e13a4681cc1fa96d6fc7d
+PrefabImporter:
+>>>>>>>> 7a70b441761ac90142d4140f819b420272f3628b:TEST HDRP/Assets/P2 executon/Main Camera.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

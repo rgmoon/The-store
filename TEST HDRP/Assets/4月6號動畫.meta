@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:TEST HDRP/Assets/4月6號動畫.meta
 guid: bd73ac6869879564a8c410721d674912
+========
+guid: 6c572f9eb03607e46a79f8d65efa3fb2
+>>>>>>>> 7a70b441761ac90142d4140f819b420272f3628b:TEST HDRP/Assets/P2 executon.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
