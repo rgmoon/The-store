@@ -11,10 +11,10 @@ public class 追擊 : MonoBehaviour
     
 
     //Patroling
-     [SerializeField]Vector3 walkPoint,chesspoint,getDarkpoint;
+     [SerializeField]Vector3 walkPoint,chesspoint,getDarkpoint,distancetodark;
     public bool walkPointSet,toDarkset;
     public float walkPointRange,walkDarkRange;
-
+    public GameObject deadcamera;
     
    
     //bool alreadyAttacked;
@@ -22,7 +22,7 @@ public class 追擊 : MonoBehaviour
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange,InDark,InLight,isecu;
-
+    float anispeed;
     // Start is called before the first frame update
     NavMeshAgent nav;
     public GameObject palyer;
@@ -39,32 +39,42 @@ public class 追擊 : MonoBehaviour
         if(Vector3.Distance(transform.position,palyer.transform.position)>=20)
          {
             isecu=false;
-            chaseison=false;
+            
             ani.SetBool("Lost",true);
             nav.speed=(1f);
          }
-        float anispeed=nav.velocity.magnitude;
-        ani.SetFloat("Speed",anispeed);
+        
+        
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         InDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
         InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
-        if(!playerInSightRange&&s==false)
+        if(!playerInSightRange&&s==false&&!InLight&&s==false&&toDarkset==false)
         {
+            
+            nav.speed=(1f);
             Patroling();
-        } else if(InLight)
-        {
-            gotodark();
-        }
-        if (playerInSightRange||s==true||chaseison==true)
+        } 
+            else if(InLight||toDarkset==true)
+            { 
+                gotodark();
+            }
+        if (s==true&&toDarkset==false)
         {
             if(InDark)
             {
-                StartCoroutine("chessanicount");
+                //StartCoroutine("chessanicount");
                 Chess();
             }
         }else
-        {ani.SetBool("dected",false);}
-        
+        {
+            s=false;
+            ani.SetBool("dected",false);
+        }
+        if(playerInSightRange)
+        {
+            deadcamera.SetActive(true);
+            
+        }
              
         
        
@@ -72,16 +82,28 @@ public class 追擊 : MonoBehaviour
     }
     private void Patroling()
     {
-        if (!walkPointSet&&正在巡邏==false) SearchWalkPoint();
-
-        if (walkPointSet)
+        if (!walkPointSet&&正在巡邏==false) 
+        {
+            //getDarkpoint=new Vector3(0,0,0);    
+            SearchWalkPoint();
+        }
+        if (walkPointSet&&正在巡邏==false)
+        {
+            
             nav.SetDestination(walkPoint);
-
+            ani.SetFloat("Speed",1);
+           
+        }else ani.SetFloat("Speed",0);
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
+        if (distanceToWalkPoint.magnitude < 1f&&正在巡邏==false)
+            {
+            //Debug.Log("DDD");
+            
+            ani.SetFloat("Speed",0);
+            StartCoroutine("ddd");
+            }
     }
     private void SearchWalkPoint()
     {
@@ -95,17 +117,30 @@ public class 追擊 : MonoBehaviour
         {
             walkPointSet = true;
             //Debug.Log("suc");
+            transform.LookAt(walkPoint);
         }
-        transform.LookAt(walkPoint);
-        StartCoroutine("ddd");
+        
+        
     }
     private void gotodark()
     {
         if(!toDarkset) SearchDark();
-        if(toDarkset)  nav.SetDestination(getDarkpoint);
-        Vector3 distancetodark=transform.position-getDarkpoint;
-        if(distancetodark.magnitude<1f)
-        toDarkset=false;
+        
+        if(toDarkset) 
+        {   
+            nav.SetDestination(getDarkpoint);
+            ani.SetBool("scare",true);
+             nav.speed=(3.5f);
+        }
+        Vector3 distancetodark=this.gameObject.transform.position-getDarkpoint;
+        if(distancetodark.magnitude<1f&&正在巡邏==false)
+        {
+         Debug.Log("DDD");  
+         toDarkset=false;
+         ani.SetFloat("Speed",0);
+         ani.SetBool("scare",false);
+        }
+        
     }
     private void SearchDark(){
         float rZ = Random.Range(-walkDarkRange, walkDarkRange);
@@ -114,12 +149,14 @@ public class 追擊 : MonoBehaviour
         if (Physics.Raycast(getDarkpoint, -transform.up, 2f, whatisDark))
         {
             toDarkset = true;
+            transform.LookAt(getDarkpoint);
         }
     }
      IEnumerator ddd()
     {   
         正在巡邏=true;
         yield return new WaitForSeconds(巡邏間隔); 
+        walkPointSet = false;
         正在巡邏=false;
     } 
     public void Chess()
@@ -131,14 +168,14 @@ public class 追擊 : MonoBehaviour
     }
     IEnumerator chessanicount()
     {
-        chaseison=true;
+        
         if(isecu==false)
         {   
             isecu=true;
             ani.SetBool("Lost",false);
             ani.SetBool("dected",true);
             nav.isStopped = true;
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(5f);
             nav.isStopped = false;
             ani.SetBool("dected",false);
         }
