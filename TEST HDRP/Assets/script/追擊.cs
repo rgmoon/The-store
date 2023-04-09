@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 public class 追擊 : MonoBehaviour
 {
+    public IAMDEAD over;
     public Animator ani;
     public LayerMask whatIsGround, whatIsPlayer,whatisLight,whatisDark;
     public float 巡邏間隔;
     public bool 正在巡邏=false;
-    
+    public bool playerinlight;
 
     //Patroling
      [SerializeField]Vector3 walkPoint,chesspoint,getDarkpoint,distancetodark;
     public bool walkPointSet,toDarkset;
     public float walkPointRange,walkDarkRange;
-    public GameObject deadcamera;
+    public GameObject deadcamera,deletecam;
     
    
     //bool alreadyAttacked;
@@ -39,13 +41,13 @@ public class 追擊 : MonoBehaviour
         if(Vector3.Distance(transform.position,palyer.transform.position)>=20)
          {
             isecu=false;
-            
+            s=false;
             ani.SetBool("Lost",true);
             nav.speed=(1f);
          }
         
-        
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        playerinlight=Physics.CheckSphere(palyer.transform.position, sightRange, whatisLight);
+        playerInSightRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         InDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
         InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
         if(!playerInSightRange&&s==false&&!InLight&&s==false&&toDarkset==false)
@@ -58,7 +60,7 @@ public class 追擊 : MonoBehaviour
             { 
                 gotodark();
             }
-        if (s==true&&toDarkset==false)
+        if (s==true&&toDarkset==false&&!playerinlight)
         {
             if(InDark)
             {
@@ -68,21 +70,29 @@ public class 追擊 : MonoBehaviour
         }else
         {
             s=false;
+            isecu=false;
+            ani.SetBool("Lost",true);
             ani.SetBool("dected",false);
         }
         if(playerInSightRange)
         {
+          deletecam.SetActive(false);
+            CharacterController playercon=palyer.GetComponent<CharacterController>();
+            playercon.enabled=false;
             deadcamera.SetActive(true);
             
+            
+            over.getover(6f);
+            Destroy(this.gameObject);
         }
-             
+
         
        
        // Debug.Log(s);
     }
     private void Patroling()
     {
-        if (!walkPointSet&&正在巡邏==false) 
+        if (!walkPointSet&&正在巡邏==false||toDarkset==true) 
         {
             //getDarkpoint=new Vector3(0,0,0);    
             SearchWalkPoint();
@@ -180,9 +190,20 @@ public class 追擊 : MonoBehaviour
             ani.SetBool("dected",false);
         }
 
-      nav.speed=(3.5f);
+      
         chesspoint=new Vector3(palyer.transform.position.x, transform.position.y, palyer.transform.position.z );
-    if(Physics.Raycast(chesspoint, -transform.up, 2f, whatisDark))
-       nav.SetDestination(palyer.transform.position);
+        if(Physics.Raycast(chesspoint, -transform.up, 2f, whatisDark))
+        {
+            
+             nav.SetDestination(palyer.transform.position);
+             nav.speed=(3.5f);
+         }else if(Physics.Raycast(chesspoint, -transform.up, 2f, whatisLight))
+         {
+            
+             isecu=false;
+            s=false;
+            ani.SetBool("Lost",true);
+            nav.speed=(1f);
+         }
     }
 }

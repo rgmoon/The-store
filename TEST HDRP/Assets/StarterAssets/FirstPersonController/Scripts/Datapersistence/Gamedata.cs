@@ -8,11 +8,11 @@ public class Gamedata
     public Vector3 playerposition;
     public bool gamestarted; 
     public Gamedata() {
-    this.gamestarted = false;//¶}·|°Q½×
+    this.gamestarted = false;//ï¿½}ï¿½|ï¿½Qï¿½ï¿½
     this.Cardsummin = 0;
     this.Cardsumhour = 0;
     this.Gamemin = 0;
     this.Gamehour = 0;
-    playerposition = Vector3.zero;
+    playerposition = new Vector3(16.51f,0.07f,-1.407f);
     }
 }

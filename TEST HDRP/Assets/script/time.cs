@@ -12,6 +12,7 @@ public class time : MonoBehaviour,IDatapersistence
     public void Start()
     {
         InvokeRepeating("stdtimer", 1, 1f);
+        hour = 1;
 
     }
     public void Update()

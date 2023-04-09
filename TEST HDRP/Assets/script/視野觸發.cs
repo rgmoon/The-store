@@ -43,13 +43,11 @@ public class 視野觸發 : MonoBehaviour
                     追擊.s=true;
                     
                 }
-                else
-                追擊.s=false;
+
             }
-                 else 追擊.s=false;
+              
         }
-        else if(追擊.s)
-        追擊.s=false;
+
     }
     // Update is called once per frame
     void Update()
