@@ -29,10 +29,10 @@ public class STDtimer : MonoBehaviour, IDatapersistence
     }
     public void Update()
     {
-        stdlastmin = summin % 10;
-        stdlastmin2 = summin / 10;
-        stdlasthour = sumhour % 10;
-        stdlasthour2 = sumhour / 10;
+        stdlastmin = timer1.sec % 10;
+        stdlastmin2 = timer1.sec / 10;
+        stdlasthour = timer1.min % 10;
+        stdlasthour2 = timer1.min / 10;
 
 
 

@@ -4,8 +4,13 @@ using UnityEngine;
 using StarterAssets;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
+
+
+
 public class NewBehaviourScript : MonoBehaviour
 {
+
     public STDtimer STDtime;
     public FirstPersonController playerController;
     public GameObject player, dpob,dptime,canlight,moneylight,maindoorlight;
