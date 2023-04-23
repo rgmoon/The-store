@@ -50,15 +50,16 @@ public class 追擊 : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         InDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
         InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
-        if(!playerInSightRange&&s==false&&!InLight&&s==false&&toDarkset==false)
+        if(!playerInSightRange&&s==false&&InLight==false&&toDarkset==false)
         {
             
             nav.speed=(1f);
             Patroling();
         } 
-            else if(InLight||toDarkset==true)
+             if(InLight||toDarkset==true)
             { 
                 gotodark();
+               
             }
         if (s==true&&toDarkset==false&&!playerinlight)
         {
@@ -141,14 +142,17 @@ public class 追擊 : MonoBehaviour
             nav.SetDestination(getDarkpoint);
             ani.SetBool("scare",true);
              nav.speed=(3.5f);
+
         }
         Vector3 distancetodark=this.gameObject.transform.position-getDarkpoint;
         if(distancetodark.magnitude<1f&&正在巡邏==false)
         {
          Debug.Log("DDD");  
+         SearchWalkPoint();
          toDarkset=false;
          ani.SetFloat("Speed",0);
          ani.SetBool("scare",false);
+
         }
         
     }
@@ -159,7 +163,7 @@ public class 追擊 : MonoBehaviour
         if (Physics.Raycast(getDarkpoint, -transform.up, 2f, whatisDark))
         {
             toDarkset = true;
-            transform.LookAt(getDarkpoint);
+            //transform.LookAt(getDarkpoint);
         }
     }
      IEnumerator ddd()
