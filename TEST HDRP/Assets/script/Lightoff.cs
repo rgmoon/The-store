@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lightoff : MonoBehaviour
 {
     
-    public GameObject Light,Dark;
+    //public GameObject Light,Dark;
     /*燈開關*/
     public bool isLightOn=true;
     /*是否中毒*/
@@ -16,11 +16,12 @@ public class Lightoff : MonoBehaviour
       public bool over=false;
       /*防彈跳*/
       public bool ishit=false;
+       Light ligh;
       public bool backtime=false;
     // Start is called before the first frame update
     void Start()
     {
-
+         ligh =this.gameObject.GetComponent<Light>();
     }
 
     // Update is called once per frame
@@ -28,13 +29,15 @@ public class Lightoff : MonoBehaviour
     {
         if (isLightOn)
         {
-            Dark.SetActive(false);
-            Light.SetActive(true);
+           
+            ligh.enabled=true;
+            this.gameObject.layer=LayerMask.NameToLayer("Light");
         }
         if(!isLightOn)
         {
-            Dark.SetActive(true);
-            Light.SetActive(false);
+            
+            ligh.enabled=false;
+            this.gameObject.layer=LayerMask.NameToLayer("Dark");
         }
         if(backtime==true&&ishit==true&&over==true)
         {
