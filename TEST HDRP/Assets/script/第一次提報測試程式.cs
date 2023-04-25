@@ -9,7 +9,7 @@ public class 第一次提報測試程式 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       A區.SetActive(false);
+      // A區.SetActive(false);
     }
 
     // Update is called once per frame

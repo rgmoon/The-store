@@ -12,7 +12,9 @@ public class 小心地滑 : MonoBehaviour
     public bool playerLimitemin,playerLimitemax,playervision;
     public bool isPlace=false;
     bool istox=false;
+    public Vector3 P4setpoint;
     public Lightoff[] Lightoff;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,16 +27,16 @@ public class 小心地滑 : MonoBehaviour
         
         if(isPlace==false)
         {
-            float randomZ = Random.Range(-10, 10);
-            float randomX = Random.Range(-10, 10);
-            Vector3 ddd=new Vector3(player.transform.position.x+randomX,player.transform.position.y,transform.position.z+randomZ);
-            playerLimitemax = Physics.CheckSphere(ddd, max, whatisPlayer);
-            playerLimitemin = Physics.CheckSphere(ddd, min, whatisPlayer);
-            playervision = Physics.CheckSphere(ddd, 1, vision);
-            if(Physics.Raycast(ddd, -transform.up, 2f, ground)&&!playerLimitemin&&playerLimitemax&&!playervision)
+            float randomZ = Random.Range(-20, 20);
+            float randomX = Random.Range(-20, 20);
+           P4setpoint=new Vector3(player.transform.position.x+randomX,player.transform.position.y,transform.position.z+randomZ);
+            playerLimitemax = Physics.CheckSphere(P4setpoint, max, whatisPlayer);
+            playerLimitemin = Physics.CheckSphere(P4setpoint, min, whatisPlayer);
+            playervision = Physics.CheckSphere(P4setpoint, 1, vision);
+            if(Physics.Raycast(P4setpoint, -transform.up, 10f, ground)&&!playerLimitemin&&playerLimitemax&&!playervision)
             {
-            
-            小心地滑實物.transform.position=new Vector3(player.transform.position.x+randomX,player.transform.position.y,transform.position.z+randomZ);
+            Debug.Log("sace");
+            小心地滑實物.transform.position=P4setpoint;
            isPlace=true;
             }
         }

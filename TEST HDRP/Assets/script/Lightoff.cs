@@ -45,10 +45,11 @@ public class Lightoff : MonoBehaviour
             backtime=false;
             ishit=false;
             over=false;
-        }else{backtime=false;}
+        }
+        //else{backtime=false;}
     }
     private void OnTriggerEnter(Collider other) {
-        if(other.tag=="感光"&&toxic==true&&ishit==false)
+        if(other.tag=="Player"&&toxic==true&&ishit==false)
         {
             isLightOn=!isLightOn;
             over=true;
@@ -56,13 +57,13 @@ public class Lightoff : MonoBehaviour
         }
         /* if(other.tag=="感光"&&toxic==true&&entry==true)
         {
-
+s
             over=true;
 
         }*/
     }
     private void OnTriggerExit(Collider other) {
-        if(other.tag=="感光"&&toxic==true)
+        if(other.tag=="Player"&&toxic==true)
         {
             //isLightOn=!isLightOn;
            // over=false;
@@ -71,7 +72,7 @@ public class Lightoff : MonoBehaviour
 
     }
     private void OnTriggerStay(Collider other) {
-        if(other.tag=="感光"&&entry==false&&toxic==true&&ishit==false)
+        if(other.tag=="Player"&&entry==false&&toxic==true&&ishit==false)
         {
             isLightOn=!isLightOn;
             entry=true;

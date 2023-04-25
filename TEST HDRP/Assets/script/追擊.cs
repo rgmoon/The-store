@@ -50,13 +50,13 @@ public class 追擊 : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         InDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
         InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
-        if(!playerInSightRange&&s==false&&InLight==false&&toDarkset==false)
+        if(!playerInSightRange&&s==false&&InLight==false)
         {
-            
+            toDarkset=true;
             nav.speed=(1f);
             Patroling();
         } 
-             if(InLight||toDarkset==true)
+             if(InLight)
             { 
                 gotodark();
                
@@ -93,7 +93,7 @@ public class 追擊 : MonoBehaviour
     }
     private void Patroling()
     {
-        if (!walkPointSet&&正在巡邏==false||toDarkset==true) 
+        if (!walkPointSet&&正在巡邏==false) 
         {
             //getDarkpoint=new Vector3(0,0,0);    
             SearchWalkPoint();
@@ -124,7 +124,7 @@ public class 追擊 : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
         
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatisDark))
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatisDark)&&!Physics.Raycast(walkPoint, -transform.up, 2f, whatisLight))
         {
             walkPointSet = true;
             //Debug.Log("suc");
@@ -147,7 +147,7 @@ public class 追擊 : MonoBehaviour
         Vector3 distancetodark=this.gameObject.transform.position-getDarkpoint;
         if(distancetodark.magnitude<1f&&正在巡邏==false)
         {
-         Debug.Log("DDD");  
+         //Debug.Log("DDD");  
          SearchWalkPoint();
          toDarkset=false;
          ani.SetFloat("Speed",0);
@@ -160,7 +160,7 @@ public class 追擊 : MonoBehaviour
         float rZ = Random.Range(-walkDarkRange, walkDarkRange);
         float rX = Random.Range(-walkDarkRange, walkDarkRange);
         getDarkpoint=new Vector3(transform.position.x + rX, transform.position.y, transform.position.z + rZ);
-        if (Physics.Raycast(getDarkpoint, -transform.up, 2f, whatisDark))
+        if (Physics.Raycast(getDarkpoint, -transform.up, 2f, whatisDark)&&!Physics.Raycast(getDarkpoint, -transform.up, 2f, whatisLight))
         {
             toDarkset = true;
             //transform.LookAt(getDarkpoint);
