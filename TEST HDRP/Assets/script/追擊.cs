@@ -52,14 +52,16 @@ public class 追擊 : MonoBehaviour
         InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
         if(!playerInSightRange&&s==false&&InLight==false)
         {
-            toDarkset=true;
-            nav.speed=(1f);
+            toDarkset=false;
+           
+            ani.SetBool("scare",false);
             Patroling();
+            Debug.Log("Patroling");
         } 
              if(InLight)
             { 
                 gotodark();
-               
+               Debug.Log("Escaping");
             }
         if (s==true&&toDarkset==false&&!playerinlight)
         {
@@ -67,6 +69,7 @@ public class 追擊 : MonoBehaviour
             {
                 //StartCoroutine("chessanicount");
                 Chess();
+                Debug.Log("Chessing");
             }
         }else
         {
@@ -145,10 +148,10 @@ public class 追擊 : MonoBehaviour
 
         }
         Vector3 distancetodark=this.gameObject.transform.position-getDarkpoint;
-        if(distancetodark.magnitude<1f&&正在巡邏==false)
+        if(distancetodark.magnitude<1f)
         {
          //Debug.Log("DDD");  
-         SearchWalkPoint();
+         //SearchWalkPoint();
          toDarkset=false;
          ani.SetFloat("Speed",0);
          ani.SetBool("scare",false);
@@ -160,8 +163,17 @@ public class 追擊 : MonoBehaviour
         float rZ = Random.Range(-walkDarkRange, walkDarkRange);
         float rX = Random.Range(-walkDarkRange, walkDarkRange);
         getDarkpoint=new Vector3(transform.position.x + rX, transform.position.y, transform.position.z + rZ);
-        if (Physics.Raycast(getDarkpoint, -transform.up, 2f, whatisDark)&&!Physics.Raycast(getDarkpoint, -transform.up, 2f, whatisLight))
+        if(Physics.Raycast(getDarkpoint, -transform.up, 5f, whatisLight))
         {
+            toDarkset = false;
+        }
+        else if(Physics.Raycast(getDarkpoint, -transform.up, 5f, whatisLight)&&Physics.Raycast(getDarkpoint, -transform.up, 5f, whatisDark))
+        {
+            toDarkset = false;
+        }
+        else if (Physics.Raycast(getDarkpoint, -transform.up, 5f, whatisDark))
+        {
+            SearchWalkPoint();
             toDarkset = true;
             //transform.LookAt(getDarkpoint);
         }
