@@ -11,6 +11,9 @@ TagManager:
   - cl
   - dl
   - ml
+  - warning1
+  - com
+  - P2
   layers:
   - Default
   - TransparentFX

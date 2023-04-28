@@ -270,11 +270,13 @@ namespace StarterAssets
        public void loaddata(Gamedata data)
         {
 			this.transform.position = data.playerposition;
+			this.transform.rotation = data.playerrotation;
 		}
 
         public void savedata(ref Gamedata data)
         {
 			data.playerposition = this.transform.position;
+			data.playerrotation = this.transform.rotation;
 		}
     }
 

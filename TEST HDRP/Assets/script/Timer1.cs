@@ -39,7 +39,6 @@ public class Timer1 : MonoBehaviour //½Õ¾ã®É¶¡¶È­­min ¸ò hour, sec¤£­n½Õ¾ã ¤£µMª
     public void cancelinvoke() {
         CancelInvoke("timerstart");
         CancelInvoke("timer");
-        Debug.Log("test");
         main.cardtick = false;
     }
    public void timer() {
@@ -75,6 +74,13 @@ public class Timer1 : MonoBehaviour //½Õ¾ã®É¶¡¶È­­min ¸ò hour, sec¤£­n½Õ¾ã ¤£µMª
         else
         {
          CancelInvoke("timer");
+         main.warning1 = true;
+         if (main.warning1 == true) //do waht u want here
+         {
+          GameObject.FindGameObjectWithTag("warning1").GetComponent<Animator>().SetBool("warning1", true);
+          GameObject.FindGameObjectWithTag("warning1").GetComponent<AudioSource>().Play();
+          Debug.Log("start flash");
+         }
         }
     }
 

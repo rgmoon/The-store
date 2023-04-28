@@ -5,8 +5,7 @@ using StarterAssets;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices;
-
-
+using System.ComponentModel;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -17,6 +16,7 @@ public class NewBehaviourScript : MonoBehaviour
     public float dis;
     public Timer1 timer;
     public bool cardtick = false;
+    public bool warning1;
     public bool clbl,mlbl,dlbl;
     bool proceed = false;
     void Start()
@@ -36,8 +36,11 @@ public class NewBehaviourScript : MonoBehaviour
         if (cardtick == false)
         {
             timer.timerstart();
+            warning1 = false;
             cardtick = true;
+            
         }
+
         if (Physics.Raycast(transform.position, target, out hit, dis))
         {
             if (Input.GetKeyDown(KeyCode.E) && hit.transform.tag == "Test")
@@ -47,7 +50,10 @@ public class NewBehaviourScript : MonoBehaviour
                 timer.min = timer.orgmin;
                 timer.hour = timer.orghour;
                 STDtime.updatestdtime();
-                Debug.Log("tru");
+                warning1 = false;
+                GameObject.FindGameObjectWithTag("warning1").GetComponent<Animator>().SetBool("warning1", false);
+                GameObject.FindGameObjectWithTag("warning1").GetComponent<AudioSource>().Stop();
+                // Debug.Log("tru");
             }
             if (Input.GetKeyDown(KeyCode.E) && hit.transform.tag == "Test2")
             {
@@ -59,7 +65,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E) && hit.transform.tag == "com")
             {
-                SceneManager.LoadScene("computer");
+                DataPersistence.instance.save();
+                Debug.Log("game saved!");
             }
             if (Input.GetKeyDown(KeyCode.E) && hit.transform.tag == "ml")
             {
@@ -94,6 +101,7 @@ public class NewBehaviourScript : MonoBehaviour
                    canlight.SetActive(false); 
                 }
             }
+
         }
     }
     IEnumerator displaytimer()

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class 追擊 : MonoBehaviour
+public class 追擊 : MonoBehaviour ,IDatapersistence
 {
     public IAMDEAD over;
     public Animator ani;
@@ -56,12 +57,12 @@ public class 追擊 : MonoBehaviour
            
             ani.SetBool("scare",false);
             Patroling();
-            Debug.Log("Patroling");
+           // Debug.Log("Patroling");
         } 
              if(InLight)
             { 
                 gotodark();
-               Debug.Log("Escaping");
+               //Debug.Log("Escaping");
             }
         if (s==true&&toDarkset==false&&!playerinlight)
         {
@@ -221,5 +222,17 @@ public class 追擊 : MonoBehaviour
             ani.SetBool("Lost",true);
             nav.speed=(1f);
          }
+    }
+
+    public void loaddata(Gamedata data)
+    {
+        this.transform.position = data.P2postition;
+        this.transform.rotation = data.P2rotation;
+    }
+
+    public void savedata(ref Gamedata data)
+    {
+        data.P2postition = this.transform.position;
+        data.P2rotation = this.transform.rotation;
     }
 }
