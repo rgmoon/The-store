@@ -16,28 +16,43 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
     //Patroling
      [SerializeField]Vector3 walkPoint,chesspoint,getDarkpoint,distancetodark;
     public bool walkPointSet,toDarkset;
-    public float walkPointRange,walkDarkRange;
+    public float walkPointRange,walkDarkRange,standsight,walksight,runsight;
     public GameObject deadcamera,deletecam;
-    
+    CharacterController PlayerRig;
    
     //bool alreadyAttacked;
     public bool s=false,chaseison=false;
     //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange,InDark,InLight,isecu;
+    public float sightRange, attackRange,guardRange;
+    public bool playerInDeadRange, playerinsight,InDark,InLight,isecu;
     float anispeed;
     // Start is called before the first frame update
     NavMeshAgent nav;
     public GameObject palyer;
     void Start()
     {
+         PlayerRig=palyer.GetComponent<CharacterController>();
        nav=this.gameObject.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
    void Update()
     {
-        
+            if(PlayerRig.velocity.magnitude==0)
+        {
+            guardRange=standsight;
+            //Debug.Log("stand");
+        }
+        else if(PlayerRig.velocity.magnitude>0&&!Input.GetKey(KeyCode.LeftShift))
+        {
+            guardRange=walksight;
+            //Debug.Log("walk");
+
+        } if(Input.GetKey(KeyCode.LeftShift)&&PlayerRig.velocity.magnitude>0)
+            {
+                guardRange=runsight;
+               // Debug.Log("run");
+            }
         
         if(Vector3.Distance(transform.position,palyer.transform.position)>=20)
          {
@@ -45,24 +60,26 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
             s=false;
             ani.SetBool("Lost",true);
             nav.speed=(1f);
+           
          }
-        
+
+        playerinsight=Physics.CheckSphere(transform.position,guardRange,whatIsPlayer);
         playerinlight=Physics.CheckSphere(palyer.transform.position, sightRange, whatisLight);
-        playerInSightRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInDeadRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         InDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
         InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
-        if(!playerInSightRange&&s==false&&InLight==false)
+        if(!playerInDeadRange&&s==false&&InLight==false)
         {
             toDarkset=false;
            
             ani.SetBool("scare",false);
             Patroling();
-           // Debug.Log("Patroling");
+            Debug.Log("Patroling");
         } 
              if(InLight)
             { 
                 gotodark();
-               //Debug.Log("Escaping");
+               Debug.Log("Escaping");
             }
         if (s==true&&toDarkset==false&&!playerinlight)
         {
@@ -72,14 +89,24 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
                 Chess();
                 Debug.Log("Chessing");
             }
-        }else
+        }else if(playerinsight&&toDarkset==false&&!playerinlight)
         {
+             if(InDark)
+            {
+                //StartCoroutine("chessanicount");
+                Chess();
+                Debug.Log("Chessing");
+            }
+        }
+        else
+        {
+            Debug.Log("Lost");
             s=false;
             isecu=false;
             ani.SetBool("Lost",true);
             ani.SetBool("dected",false);
         }
-        if(playerInSightRange)
+        if(playerInDeadRange)
         {
           deletecam.SetActive(false);
             CharacterController playercon=palyer.GetComponent<CharacterController>();
@@ -191,17 +218,18 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
         StartCoroutine("chessanicount");
         
        
-        transform.LookAt(chesspoint);
+        
     }
     IEnumerator chessanicount()
     {
-        
+        /*發現警告動畫*/
         if(isecu==false)
         {   
             isecu=true;
             ani.SetBool("Lost",false);
             ani.SetBool("dected",true);
             nav.isStopped = true;
+            transform.LookAt(chesspoint);
             yield return new WaitForSeconds(5f);
             nav.isStopped = false;
             ani.SetBool("dected",false);
@@ -216,10 +244,12 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
              nav.speed=(3.5f);
          }else if(Physics.Raycast(chesspoint, -transform.up, 2f, whatisLight))
          {
-            
+
+            Debug.Log("Lost");
              isecu=false;
             s=false;
             ani.SetBool("Lost",true);
+            ani.SetBool("dected",false);
             nav.speed=(1f);
          }
     }
