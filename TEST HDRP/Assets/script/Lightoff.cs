@@ -41,6 +41,7 @@ public class Lightoff : MonoBehaviour
         }
         if(backtime==true&&ishit==true&&over==true)
         {
+            
             isLightOn=!isLightOn;
             backtime=false;
             ishit=false;
@@ -49,9 +50,9 @@ public class Lightoff : MonoBehaviour
         //else{backtime=false;}
     }
     private void OnTriggerEnter(Collider other) {
-        if(other.tag=="Player"&&toxic==true&&ishit==false)
+        if(other.tag=="Player"&&toxic==true&&ishit==false&&isLightOn==true)
         {
-            isLightOn=!isLightOn;
+            isLightOn=false;
             over=true;
             ishit=true;
         }
@@ -72,9 +73,9 @@ s
 
     }
     private void OnTriggerStay(Collider other) {
-        if(other.tag=="Player"&&entry==false&&toxic==true&&ishit==false)
+        if(other.tag=="Player"&&entry==false&&toxic==true&&ishit==false&&isLightOn==true)
         {
-            isLightOn=!isLightOn;
+            isLightOn=false;
             entry=true;
             over=true;
             ishit=true;

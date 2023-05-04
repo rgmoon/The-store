@@ -15,7 +15,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
 
     //Patroling
      [SerializeField]Vector3 walkPoint,chesspoint,getDarkpoint,distancetodark;
-    public bool walkPointSet,toDarkset;
+    public bool walkPointSet,toDarkset,chessing;
     public float walkPointRange,walkDarkRange,standsight,walksight,runsight;
     public GameObject deadcamera,deletecam;
     CharacterController PlayerRig;
@@ -56,10 +56,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
         
         if(Vector3.Distance(transform.position,palyer.transform.position)>=20)
          {
-            isecu=false;
-            s=false;
-            ani.SetBool("Lost",true);
-            nav.speed=(1f);
+            Lost();
            
          }
 
@@ -81,18 +78,20 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
                 gotodark();
                Debug.Log("Escaping");
             }
-        if (s==true&&toDarkset==false&&!playerinlight)
+        if (s==true&&toDarkset==false&&!playerinlight||chessing==true)
         {
+            chessing=true;
             if(InDark)
             {
                 //StartCoroutine("chessanicount");
                 Chess();
                 Debug.Log("Chessing");
             }
-        }else if(playerinsight&&toDarkset==false&&!playerinlight)
+        }else if(playerinsight&&toDarkset==false&&!playerinlight||chessing==true)
         {
              if(InDark)
             {
+                chessing=true;
                 //StartCoroutine("chessanicount");
                 Chess();
                 Debug.Log("Chessing");
@@ -100,11 +99,8 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
         }
         else
         {
-            Debug.Log("Lost");
-            s=false;
-            isecu=false;
-            ani.SetBool("Lost",true);
-            ani.SetBool("dected",false);
+            //Debug.Log("Lost");
+            Lost();
         }
         if(playerInDeadRange)
         {
@@ -131,7 +127,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
         }
         if (walkPointSet&&正在巡邏==false)
         {
-            
+            nav.speed=(1f);
             nav.SetDestination(walkPoint);
             ani.SetFloat("Speed",1);
            
@@ -220,6 +216,14 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
        
         
     }
+    private void Lost()
+    {
+        chessing=false;
+            s=false;
+            isecu=false;
+            ani.SetBool("Lost",true);
+            ani.SetBool("dected",false);
+    }
     IEnumerator chessanicount()
     {
         /*發現警告動畫*/
@@ -246,11 +250,12 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
          {
 
             Debug.Log("Lost");
-             isecu=false;
-            s=false;
-            ani.SetBool("Lost",true);
+             ani.SetBool("Lost",true);
             ani.SetBool("dected",false);
             nav.speed=(1f);
+             isecu=false;
+            s=false;
+
          }
     }
 
