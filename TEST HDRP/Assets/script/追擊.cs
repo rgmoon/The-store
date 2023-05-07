@@ -78,7 +78,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
                 gotodark();
                Debug.Log("Escaping");
             }
-        if (s==true&&toDarkset==false&&!playerinlight||chessing==true)
+        if (s==true&&toDarkset==false&&!playerinlight||(chessing==true&&!playerinlight))
         {
             chessing=true;
             if(InDark)
@@ -87,7 +87,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
                 Chess();
                 Debug.Log("Chessing");
             }
-        }else if(playerinsight&&toDarkset==false&&!playerinlight||chessing==true)
+        }else if(playerinsight&&toDarkset==false&&!playerinlight||(chessing==true&&!playerinlight))
         {
              if(InDark)
             {

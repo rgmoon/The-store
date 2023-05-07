@@ -11,7 +11,7 @@ public class 小心地滑 : MonoBehaviour
     public float ToxicTime;
     public bool playerLimitemin,playerLimitemax,playervision;
     public bool isPlace=false;
-    bool istox=false;
+    //bool istox=false;
     public Vector3 P4setpoint;
     public Lightoff[] Lightoff;
     
@@ -47,7 +47,7 @@ public class 小心地滑 : MonoBehaviour
         {
            // Debug.Log("place");
             StartCoroutine(ddd());
-            istox=true;
+            //istox=true;
             isPlace=false;
 
            
