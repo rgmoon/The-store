@@ -26,6 +26,8 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
     public float sightRange, attackRange,guardRange;
     public bool playerInDeadRange, playerinsight,InDark,InLight,isecu;
     float anispeed;
+        float smoothdamp=0f;
+    float smoothtime=0.3f;
     // Start is called before the first frame update
     NavMeshAgent nav;
     public GameObject palyer;
@@ -108,8 +110,6 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
             CharacterController playercon=palyer.GetComponent<CharacterController>();
             playercon.enabled=false;
             deadcamera.SetActive(true);
-            
-            
             over.getover(6f);
             Destroy(this.gameObject);
         }
@@ -155,7 +155,10 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
         {
             walkPointSet = true;
             //Debug.Log("suc");
-            transform.LookAt(walkPoint);
+            Vector3 dir=(walkPoint-transform.position).normalized;
+            float targetangle=Mathf.Atan2(dir.x,dir.z)*Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y,targetangle,ref smoothdamp,smoothtime);
+            transform.rotation=Quaternion.Euler(0f,angle,0f);
         }
         
         
@@ -238,7 +241,11 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
             nav.isStopped = false;
             ani.SetBool("dected",false);
         }
-
+        if(chessing==false)
+        {
+            yield break;
+        }
+        
       
         chesspoint=new Vector3(palyer.transform.position.x, transform.position.y, palyer.transform.position.z );
         if(Physics.Raycast(chesspoint, -transform.up, 2f, whatisDark))
