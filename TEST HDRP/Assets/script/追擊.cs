@@ -73,7 +73,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
            
             ani.SetBool("scare",false);
             Patroling();
-            Debug.Log("Patroling");
+            //Debug.Log("Patroling");
         } 
              if(InLight)
             { 

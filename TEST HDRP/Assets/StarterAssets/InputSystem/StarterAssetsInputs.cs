@@ -8,6 +8,7 @@ namespace StarterAssets
 	public class StarterAssetsInputs : MonoBehaviour
 	{
 		[Header("Character Input Values")]
+		public stamina stamina;
 		public Vector2 move;
 		public Vector2 look;
 		public bool jump;
@@ -41,7 +42,7 @@ namespace StarterAssets
 
 		public void OnSprint(InputValue value)
 		{
-			SprintInput(value.isPressed);
+				SprintInput(value.isPressed);
 		}
 #endif
 
@@ -64,7 +65,7 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
-		}
+        }
 		
 		private void OnApplicationFocus(bool hasFocus)
 		{
