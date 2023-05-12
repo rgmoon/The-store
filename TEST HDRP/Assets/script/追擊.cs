@@ -8,7 +8,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
 {
     public IAMDEAD over;
     public Animator ani;
-    public LayerMask whatIsGround, whatIsPlayer,whatisLight,whatisDark;
+    public LayerMask whatIsGround, whatIsPlayer,whatisLight,whatisDark,whatisWarning;
     public float 巡邏間隔;
     public bool 正在巡邏=false;
     public bool playerinlight;
@@ -24,7 +24,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
     public bool s=false,chaseison=false;
     //States
     public float sightRange, attackRange,guardRange;
-    public bool playerInDeadRange, playerinsight,InDark,InLight,isecu;
+    public bool playerInDeadRange, playerinsight,InDark,InLight,isecu,inwarning;
     float anispeed;
         float smoothdamp=0f;
     float smoothtime=0.3f;
@@ -40,6 +40,15 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
     // Update is called once per frame
    void Update()
     {
+        if(inwarning)
+        {
+            walkPointRange=50;
+            whatisDark=whatisWarning;
+        }else
+        {
+            walkPointRange=10;
+            whatisDark=LayerMask.NameToLayer("Dark");
+        }
             if(PlayerRig.velocity.magnitude==0)
         {
             guardRange=standsight;
@@ -67,6 +76,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
         playerInDeadRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         InDark = Physics.CheckSphere(transform.position, sightRange, whatisDark);
         InLight = Physics.CheckSphere(transform.position, sightRange, whatisLight);
+        
         if(!playerInDeadRange&&s==false&&InLight==false)
         {
             toDarkset=false;
