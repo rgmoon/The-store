@@ -31,6 +31,7 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
     // Start is called before the first frame update
     NavMeshAgent nav;
     public GameObject palyer;
+    RaycastHit hitInfo;
     void Start()
     {
          PlayerRig=palyer.GetComponent<CharacterController>();
@@ -40,10 +41,39 @@ public class 追擊 : MonoBehaviour ,IDatapersistence
     // Update is called once per frame
    void Update()
     {
+        NavMeshHit hit;
+
+
+            
+        
+    
+
         if(inwarning)
         {
-            walkPointRange=50;
-            whatisDark=whatisWarning;
+                NavMeshPath path = new NavMeshPath();
+                if (NavMesh.CalculatePath(transform.position, nav.pathEndPosition, NavMesh.AllAreas, path))
+                {
+                    
+                    for (int i = 1; i < path.corners.Length; i++)
+                    {
+                        Vector3 from = new Vector3(path.corners[i - 1].x,path.corners[i - 1].y,path.corners[i - 1].z) ;
+                        Vector3 to = path.corners[i];
+                        
+                        
+                        if (Physics.Raycast(from, to - from, out hitInfo, Vector3.Distance(from, to)))
+                        {
+                            if(hitInfo.collider.gameObject.layer!=8)
+                            {
+                                        walkPointRange=50;
+                                         whatisDark=whatisWarning;
+                            }
+                            Debug.Log("Hit object with layer " + LayerMask.LayerToName(hitInfo.collider.gameObject.layer));
+                        }
+                    }
+                }
+            
+
+
         }else
         {
             walkPointRange=10;
